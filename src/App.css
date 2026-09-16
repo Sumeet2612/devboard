@@ -1,0 +1,21 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+aside {
+  width: 220px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+main {
+  flex: 1;
+  padding: 30px;
+}
