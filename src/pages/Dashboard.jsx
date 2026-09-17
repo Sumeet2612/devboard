@@ -49,7 +49,7 @@ const Dashboard = () => {
               return <div key={project.name}> {project.name} </div>
             })}
           </div>
-          
+
           {/* Complete Card */}
           <div className="stat-card">
             <h3>Completed</h3>
