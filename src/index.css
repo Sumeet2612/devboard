@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 .app {
   display: flex;
   min-height: 100vh;
@@ -18,4 +26,15 @@ nav {
 main {
   flex: 1;
   padding: 30px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 250px;
 }

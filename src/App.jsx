@@ -7,9 +7,11 @@ const App = () => {
   return (
     <div className="app">
 
-    <Sidebar /> // 
+    <Sidebar />  
+    {/* Will be visible in every routes  */}
     <main>
-      <Routes>
+      <Routes> 
+        {/* // Decides what is inside main  */}
         <Route path="/" element={<Dashboard/>} />
         <Route path="/projects" element={<Projects/>} />
         <Route path="/settings" element={<Settings/>} />
