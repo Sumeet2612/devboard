@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../styles/project.css";
 const Projects = () => {
 
   const [projects , setProjects] = useState([
@@ -18,13 +19,15 @@ const Projects = () => {
   const [showForm , setShowForm] = useState(false)
   const [projectName , setProjectName] = useState("")
   const [projectStatus , setprojectStatus] = useState("in-progress")
-  const [editingProject , setEdidtingProject] = useState(null)
+  const [editingProject , setEditingProject] = useState(null)
+  const [editName , seteditName] = useState("")
+  const [editStatus , seteditStatus] = useState("in-progress")
   return (
-    <div>
+    <div className="projects-page">
 
       <button onClick={() => setShowForm(true)}> Add Project </button>
       {showForm && (
-        <div> 
+        <div > 
           <h2>Add New Project</h2>
           <input type="text" 
           placeholder="Enter Project name"
@@ -48,11 +51,10 @@ const Projects = () => {
           }}>Add</button>
         </div>
       )}
-      <div className="stats">
-        <div className="stat-card">
+      <div className="project-grid">
           {projects.map((project)=>{
             return (
-              <div key={project.name}>
+              <div className="project-card" key={project.name}>
                 <h3>{project.name}</h3>
                 <p>{project.status}</p>
                 <button onClick={() => {
@@ -64,18 +66,42 @@ const Projects = () => {
 
                 }}>Delete</button>
                 <button onClick={() => {
-                  setEdidtingProject(project)
+                  setEditingProject(project)
+                  seteditName(project.name)
+                  seteditStatus(project.status)
                 }}>Edit</button>
-                {editingProject && (
+                {editingProject?.name === project.name && (
                   <div>
                     <h3>Edit project</h3>
+                    <input 
+                  value = {editName}
+                    onChange={(e) => seteditName(e.target.value)}
+                    />
+                    <select value = {editStatus} onChange={(e) => seteditStatus(e.target.value)}>
+                      <option value="in-progress">In Progress</option>
+                      <option value="completed">Completed</option>
+                    </select>
+                    <button onClick={()=>{
+                      const updatedProjects = projects.map((project) => {
+                        if (editingProject?.name === project.name){
+                          return {
+                            name : editName , status : editStatus
+                          }
+                        }
+                        return project 
+                      })
+                      setProjects(updatedProjects)
+                      setEdidtingProject(null)
+                    }}>Save</button>
+
+                    <button onClick={(e) => setEdidtingProject(null)}>Cancel
+                    </button>
                   </div>
-                )
-                }
+                )}
               </div>
             )
           })}
-        </div>
+
       </div>
       
       

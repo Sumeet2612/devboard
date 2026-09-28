@@ -1,4 +1,5 @@
 import React from "react"
+import StatCard from "../components/StatCard"
 const Dashboard = () => {
   const projects = [
     {
@@ -27,39 +28,14 @@ const Dashboard = () => {
   })
 
   return (
-    <div>
+    <div className="dashboard">
         <h1>Dashboard</h1>
-        <p>Welcome to Devboard</p>
-
-        {/* Total Projects */}
-        <div className="stats">
-          <div className="stat-card">
-            <h3>Total Projects</h3>
-            <p>{projects.length}</p>
-            {projects.map((project) =>{
-              return <div key={project.name}>{project.name}</div>
-            })}
-          </div>
-
-          {/* In Progress Card  */}
-          <div className="stat-card">
-            <h3>In Progress</h3>
-            <p>{inProgressProjects.length}</p>
-            {inProgressProjects.map((project) =>{
-              return <div key={project.name}> {project.name} </div>
-            })}
-          </div>
-
-          {/* Complete Card */}
-          <div className="stat-card">
-            <h3>Completed</h3>
-            <p>{completedProjects.length}</p>
-            {completedProjects.map((project)=>{
-              return <div key = {project.name}> {project.name} </div>
-            })}
-          </div>
-          
-        </div> 
+        <p>Track your Development journey.</p>
+        <div className="stats-grid">
+          <StatCard title="Total Projects" count={projects.length} /> 
+          <StatCard title="In Progress " count={inProgressProjects.length} /> 
+          <StatCard title="Completed " count={completedProjects.length} /> 
+        </div>
     </div>
   )
 }

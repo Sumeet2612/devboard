@@ -5,16 +5,17 @@ import Settings from "./pages/Settings"
 import Sidebar from "./components/Sidebar"
 const App = () => {
   return (
-    <div className="app">
+    <div className="app-layout">
 
     <Sidebar />  
     {/* Will be visible in every routes  */}
-    <main>
+    <main className="content">
       <Routes> 
         {/* // Decides what is inside main  */}
         <Route path="/" element={<Dashboard/>} />
         <Route path="/projects" element={<Projects/>} />
         <Route path="/settings" element={<Settings/>} />
+        
       </Routes>
     </main>    
     </div>
