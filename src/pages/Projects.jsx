@@ -27,7 +27,7 @@ const Projects = () => {
 
       <button onClick={() => setShowForm(true)}> Add Project </button>
       {showForm && (
-        <div > 
+        <div className="add-form" > 
           <h2>Add New Project</h2>
           <input type="text" 
           placeholder="Enter Project name"
@@ -48,7 +48,15 @@ const Projects = () => {
                 status : projectStatus
             }])
             setProjectName("");
+            setprojectStatus("in-progress");
+            setShowForm(false);
           }}>Add</button>
+          <button onClick={ () => {
+            setShowForm(false);
+            setProjectName("");
+            setprojectStatus("in-progress");
+          }
+          }>Cancel</button>
         </div>
       )}
       <div className="project-grid">
@@ -56,7 +64,7 @@ const Projects = () => {
             return (
               <div className="project-card" key={project.name}>
                 <h3>{project.name}</h3>
-                <p>{project.status}</p>
+                <span className={`status ${project.status}`}>{project.status}</span>
                 <button onClick={() => {
                   const updatedArray = projects.filter((item) => {
                     return item.name !== project.name 
@@ -91,10 +99,12 @@ const Projects = () => {
                         return project 
                       })
                       setProjects(updatedProjects)
-                      setEdidtingProject(null)
+                      setEditingProject(null)
+                      seteditName("");
+                      seteditStatus('in-progress');
                     }}>Save</button>
 
-                    <button onClick={(e) => setEdidtingProject(null)}>Cancel
+                    <button onClick={(e) => setEditingProject(null)}>Cancel
                     </button>
                   </div>
                 )}

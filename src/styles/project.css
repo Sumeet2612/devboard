@@ -14,4 +14,69 @@
     border-radius:16px;
     padding:20px;
     box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition: 0.3s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+.project-card h3{
+    margin-bottom:10px;
+}
+
+.project-card button{
+    margin-right:10px;
+    margin-top:15px;
+}
+.projects-page > button{
+    background:#2563eb;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.projects-page > button:hover{
+    background:#1d4ed8;
+}
+.status{
+    display:inline-block;
+    margin:10px 0;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.completed{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.in-progress{
+    background:#dbeafe;
+    color:#2563eb;
+}
+.add-form{
+    background:white;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.add-form input,
+.add-form select{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border-radius:8px;
+    border:1px solid #d1d5db;
+}
+.add-form button{
+    margin-top:15px;
+    margin-right:10px;
 }
